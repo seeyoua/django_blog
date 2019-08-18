@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^authorizations/$', obtain_jwt_token),
     url(r'^', include('users.urls')),
+    url(r'^',include('collarticle.urls'))
 
 ]

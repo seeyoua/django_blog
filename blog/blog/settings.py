@@ -13,9 +13,13 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import sys
 import datetime
+import celery
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0,os.path.join(BASE_DIR,"apps"))
+
+sys.path.insert(0,os.path.join(BASE_DIR,"celery_task"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -39,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'collarticle.apps.CollarticleConfig'
 ]
 
 MIDDLEWARE = [
@@ -86,7 +91,6 @@ DATABASES = {
         'PORT':3306,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -142,3 +146,10 @@ REST_FRAMEWORK = {
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
 }
+
+
+
+
+
+
+
